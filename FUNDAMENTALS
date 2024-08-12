@@ -1,1 +1,173 @@
 
+
+    VARIABLES
+
+    -LET: alcance de un ambito en particular
+    -CONST: una vez inicializada y asignado un valor, no se puede cambiar. 
+    -VAR: alcance Global y de Funcion
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+[
+    -STRING: cadena de caracteres, secuencia de caracteres, 3 formas de inicializar.
+
+    --DECLARACION--
+
+    COMILLAS SIMPLES: ' '
+    COMILLAS DOBLES: " "
+    COMILLAS INVERTIDAS: “ “
+
+    let str1 = 'Hola, esto es un string con comillas simples.';
+    let str2 = String ("Hola, esto es un string con comillas dobles.");
+    let str3 = new String (“Hola, esto es un string con comillas
+    invertidas.”);
+
+
+    --METODOS--
+    String.length: devuelve cantidad caracteres
+    String.charAt(int i): devuelve el caracter de la posicion de i
+    var mensaje = String.concat("Hola", nombre);: concatena 2 Strings
+    String.toUpperCase: Convierte el string en MAYUSCULA
+    String.toLowerCase: Convierte el string en MINUSCULA.
+    String.slice(int start, int end): devuelve una porcio del String especifciada de una posicion a la otra
+    String.substring(start, end): igual a silce pero permite valores negativos
+    String.indexOf(subCadena, fromIndex): devuelve la primera posicion donde se encuentre la subcadena, o -1 si no lo encuentra
+    String.lastIndexOf(subCadena, fromIndex): igual que indexOf pero desde el final
+    String.replace(cadenaARemplazar, nuevoString): reemplaza el primer parametro por el segundo en el string.
+
+]
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+--OPERADORES--
+Prioridades de orden de operadores...
+
+-1 parentesis
+-2 exponente()
+-3 multiplicacion, division, modulo. (de izquierda a derecha)
+-4 suma, resta. (de izquierda a derecha)
+-5 operadores de concatenacion
+-6 operadores de comparacion (==, !=, <,>, <=, >=,etc)
+-7 operadores logicos (&&, ||), (&& tiene mas prioridad que ||)
+-8 asignaciones (=, +=, -=, etc)
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+ --OBJETOS LITERALES--
+    Se declaran con {} y son pares "clave-valor" separadas por coma , ...
+
+
+
+-SIMPLE-
+
+    var objetoPrueba = {
+
+        nombre : 'santiago',
+        apellido : 'ude',
+        edad : 20,
+        altura : 1.87,
+        peso : 250
+    }
+
+
+-CON OBJETO DENTRO-
+
+var objetoPrueba = {
+
+        nombre : 'santiago',
+        apellido : 'ude',
+        edad : 20,
+        altura : 1.87,
+        peso : 250,
+        notas :{
+            matematica : 3,
+            biologia : 4,
+            ed_fisica : 8,
+            historia : 10
+        }
+    }
+
+-CON FUNCION Y OBJETO-
+
+var objetoPrueba = {
+
+        nombre : 'santiago',
+        apellido : 'ude',
+        edad : 20,
+        altura : 1.87,
+        peso : 250,
+        notas : {
+            matematica : 3,
+            biologia : 4,
+            ed_fisica : 8,
+            historia : 10
+        }
+        saludar: function(){
+            console.log('Hola como estas?, mi nombre es ${this.nombre}') // console.log('Hola como estas?, mi nombre es ' + this.nombre)
+        }
+
+    }
+
+
+-ESTRUCTURA COMPLEJA-
+
+
+    var empresa = {
+
+        nombre: 'Mcdonald',
+        area: 'Food & Beverage',
+        empleados: [
+
+            {nombre: 'ramiro',
+            apellido: 'funes mori',
+            edad: 33}
+            ,
+            {nombre: 'juan sebastian',
+            apellido: 'veron',
+            edad: 55
+            }
+            ,
+            {nombre: 'fernando',
+            apellido: 'cavenaghi',
+            edad: 26
+            }
+
+        ]
+    }
+
+
+---CAMBIAR/MODIFICAR VALORES DEL OBJETO---
+2 formas...
+
+-CON ":" -> persona.nombre = 'rodrigo';
+-CON "[]" -> persona["nombre"] = 'rodrigo';
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+---- "use strict" ----
+
+es un llamado para que, el bloque de codigo seguido o archivo de codigo, cuente con ciertas restricciones 
+para un codigo mas seguro y robusto.
+
+Por ejemplo --no permite las declaraciones implicitas(no permite declaraciones sin var,let,const)--     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
