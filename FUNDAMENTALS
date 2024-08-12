@@ -151,23 +151,52 @@ var objetoPrueba = {
 es un llamado para que, el bloque de codigo seguido o archivo de codigo, cuente con ciertas restricciones 
 para un codigo mas seguro y robusto.
 
-Por ejemplo --no permite las declaraciones implicitas(no permite declaraciones sin var,let,const)--     
+Por ejemplo --no permite las declaraciones implicitas(no permite declaraciones sin var,let,const)
+
+
+--Object.freeze--
+1: Transforma un objeto totalmente inmutable, no puede agregar, eliminar ni modificar ningun dato.
+2: Propiedades NO configurables, no se pueden cambiar los atributos
+3: Recursiva, Si el objeto contiene propiedades que tambien son objetos, tambien se les aplica el Object.freeze
 
 
 
+--Object.seal--
+
+1: inmutabilidad parcial, permite modificar las propiedades existentes, pero no agregar nuevas o eliminar.
+2: Propiedades no configurables
+3: Recursiva.
 
 
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+---OBJETO CONSTRUCTOR---
+Funcion para crear/construir nuevos objetos...
+new + nombre CONSTRUCTOR
 
 
+EJEMPLO:
+
+function Persona(nombre,apellido,edad,altura,peso){
 
 
-
-
-
-
-
-
-
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.edad = edad;
+    this.infoAdicional;{
+    
+    this.altura = altura;
+    this.peso = peso;
+    
+    };
+    
+    this.darInfo = function(){
+    
+    console.log(`Mi nombre es ${this.nombre + ' ' + this. apellido} y tengo ${this.edad} anios, peso ${this.peso} kg y mido ${this.altura}m. Un gusto.`)
+    
+    };
+    
+    }
 
 
 
