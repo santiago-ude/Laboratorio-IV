@@ -1,6 +1,6 @@
 
 
-    VARIABLES
+    |||-------|||-------|||-------|||-------|||-------VARIABLES-------|||-------|||-------|||-------|||-------|||-------|||
 
     -LET: alcance de un ambito en particular
     -CONST: una vez inicializada y asignado un valor, no se puede cambiar. 
@@ -8,8 +8,11 @@
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-[
-    -STRING: cadena de caracteres, secuencia de caracteres, 3 formas de inicializar.
+
+
+            |||-------|||-------|||-------|||-------|||-------STRING-------|||-------|||-------|||-------|||-------|||-------|||
+
+    cadena de caracteres, secuencia de caracteres, 3 formas de inicializar.
 
     --DECLARACION--
 
@@ -35,12 +38,12 @@
     String.lastIndexOf(subCadena, fromIndex): igual que indexOf pero desde el final
     String.replace(cadenaARemplazar, nuevoString): reemplaza el primer parametro por el segundo en el string.
 
-]
+
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
 
---OPERADORES--
+|||-------|||-------|||-------|||-------|||-------OPERADORES-------|||-------|||-------|||-------|||-------|||-------|||
 Prioridades de orden de operadores...
 
 -1 parentesis
@@ -54,7 +57,7 @@ Prioridades de orden de operadores...
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
- --OBJETOS LITERALES--
+ |||-------|||-------|||-------|||-------|||-------OBJETOS LITERALES-------|||-------|||-------|||-------|||-------|||-------|||
     Se declaran con {} y son pares "clave-valor" separadas por coma , ...
 
 
@@ -88,6 +91,7 @@ var objetoPrueba = {
         }
     }
 
+
 -CON FUNCION Y OBJETO-
 
 var objetoPrueba = {
@@ -111,7 +115,6 @@ var objetoPrueba = {
 
 
 -ESTRUCTURA COMPLEJA-
-
 
     var empresa = {
 
@@ -146,7 +149,7 @@ var objetoPrueba = {
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
----- "use strict" ----
+|||-------|||-------|||-------|||-------|||-------"use strict"-------|||-------|||-------|||-------|||-------|||-------|||
 
 es un llamado para que, el bloque de codigo seguido o archivo de codigo, cuente con ciertas restricciones 
 para un codigo mas seguro y robusto.
@@ -170,7 +173,7 @@ Por ejemplo --no permite las declaraciones implicitas(no permite declaraciones s
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
----OBJETO CONSTRUCTOR---
+|||-------|||-------|||-------|||-------|||-------OBJETO CONSTRUCTOR-------|||-------|||-------|||-------|||-------|||-------|||
 Funcion para crear/construir nuevos objetos...
 new + nombre CONSTRUCTOR
 
@@ -197,6 +200,38 @@ function Persona(nombre,apellido,edad,altura,peso){
     };
     
     }
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+|||-------|||-------|||-------|||-------|||-------TIPOS DATOS COMPUESTOS-------|||-------|||-------|||-------|||-------|||-------|||
+
+1 OBJECT: Coleccion de pares {clave : valor}.
+2 ARRAY: Lista ordenada de elementos de cualquier tipo, indexada con indices desde 0
+3 FUNCTION: Es un objeto de primera clase, que puede retornar algo que se le asigne a una variable, que imprima algo,etc
+4 DATE: Se utiliza para manejar Horas y Fechas
+5 RegExp (expresiones regulares): son variables que almacenan una especie de reestriccion que se usa para coincidir una cadena de texto con una ESTRUCTURA
+6 MAP: coleccion de pares {clave: valor} claves de cualquier tipo
+7 SET: conjunto de valores, no permite duplicados.
+8 WEAKMAP: similar a MAP pero las claves son solo objetos y si no se referencian por un tiempo se borran
+9 WEAKSET:similar a SET pero los elementos son solo objetos y si no se referencian se borran.
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
