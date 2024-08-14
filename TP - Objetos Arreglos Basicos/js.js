@@ -39,7 +39,7 @@ console.log(persona);
 
 //punto 6
 
-const numeros = [1,2,3,4,5];
+const numeros = [1, 2, 3, 4, 5];
 console.log(`6) ${numeros}`);
 
 
@@ -62,10 +62,10 @@ console.log(`9) borre el ultimo numero del array (6): ${numeros}`);
 //punto 10
 
 console.log('10) muestro los elementos del array con un bucle for');
-for(let i = 0; i < numeros.length; i++){
+for (let i = 0; i < numeros.length; i++) {
 
 
-console.log(numeros[i]);
+    console.log(numeros[i]);
 
 }
 
@@ -73,10 +73,10 @@ console.log(numeros[i]);
 //punto 11
 
 
-function Producto(nombre, precio){
+function Producto(nombre, precio) {
 
-this.nombre = nombre;
-this.precio = precio;
+    this.nombre = nombre;
+    this.precio = precio;
 }
 
 const producto1 = new Producto('Producto1', 12999);
@@ -90,7 +90,7 @@ productos.push(producto3);
 
 
 console.log(`11) creo array de productos con 3 productos cargados`);
-for(let i = 0; i < productos.length; i++){
+for (let i = 0; i < productos.length; i++) {
 
     console.log(productos[i]);
 
@@ -111,7 +111,7 @@ console.log('13) cambie el precio del segundo producto del array');
 
 productos[1].precio = 135000;
 
-for(let i = 0; i < productos.length; i++){
+for (let i = 0; i < productos.length; i++) {
 
     console.log(productos[i]);
 
@@ -122,7 +122,7 @@ for(let i = 0; i < productos.length; i++){
 
 console.log('14) elimine el primer producto del array');
 productos.shift();
-for(let i = 0; i < productos.length; i++){
+for (let i = 0; i < productos.length; i++) {
 
     console.log(productos[i]);
 
@@ -140,29 +140,42 @@ for(let i = 0; i < productos.length; i++){
 const nuevoArray = numeros.filter(num => num > 3)
 console.log(`17) Muestro el nuevo arrayFiltrado que tiene los elementos del array numeros mayores a tres: ${nuevoArray}`);
 
+
+
 //punto 18
 
+const empresa = {
+
+    nombre: 'Globant',
+    ubicacion: 'Colon 1877',
+    empleados: {
+        cantidad: 200,
+    },
+    verInfo: function () {
+        console.log(`Nombre: ${this.nombre} Ubicacion: ${this.ubicacion} Cantidad Empleados: ${this.empleados.cantidad}`);
+    }
+
+}
+
+empresa.verInfo();
+
+
+//punto 19
+
+
+console.log(`19) La propiedad empleados->cantidad es: ${empresa.empleados.cantidad}`);
+
+//punto 20
 
 
 
 
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [6, 7, 8, 9, 10];
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const arrayCombinado = array1.concat(array2);
+console.log(`20) Array combinado: ${arrayCombinado}`);
 
 
 
