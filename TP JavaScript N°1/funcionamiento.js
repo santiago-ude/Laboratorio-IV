@@ -354,19 +354,200 @@ function eliminarEstudiante(arrayEstudiantes, nombre) {
 
     if (arrayEstudiantes[i].nombre == nombre) {
 
-      arrayEstudiantes.splice(i,1);
+      arrayEstudiantes.splice(i, 1);
 
     }
     i++;
   }
 
-return arrayEstudiantes;
+  return arrayEstudiantes;
+}
+
+console.log(eliminarEstudiante(arrayEstudiantes, 'santiago'));
+
+
+//punto 26
+
+var arrayProductos = [];
+
+const productito1 = new Producto('Pelota', 12000, 100);
+arrayProductos.push(productito1);
+
+const productito2 = new Producto('Botines', 135000, 10);
+arrayProductos.push(productito2);
+
+const productito3 = new Producto('Venda', 500, 20);
+arrayProductos.push(productito3);
+
+const productito4 = new Producto('Canillera', 7000, 44);
+arrayProductos.push(productito4);
+
+const productito5 = new Producto('Media', 10000, 55);
+arrayProductos.push(productito5);
+
+
+
+function totalCarrito(arrayProductos) {
+
+
+  let totalCarrito = 0;
+
+  arrayProductos.forEach(element => {
+
+    totalCarrito = totalCarrito + element.precio;
+
+  });
+
+  return totalCarrito;
+}
+
+console.log(`26) El total del carrito es $${totalCarrito(arrayProductos)}`);
+
+
+//punto 27
+
+
+function crearCalculadora() {
+
+
+  let calculadora = {
+
+    sumar: function (num1, num2) {
+      return (num1 + num2);
+    },
+
+    restar: function (num1, num2) {
+      return (num1 - num2);
+    },
+
+    multiplicar: function (num1, num2) {
+      return (num1 * num2)
+    },
+
+    dividir: function (num1, num2) {
+      return (num1 / num2);
+    }
+
+  }
+
+  return calculadora;
+
+}
+
+var calculadora = crearCalculadora();
+
+const resultadito = calculadora.sumar(5, 8);
+
+console.log(`27) La calculadora sumo 5 + 8 y el resultado dio: ${resultadito}`);
+
+
+
+//punto 28
+
+function crearCuentaBancaria() {
+
+  let cuentaBancaria = {
+
+    saldo: 0,
+    depositar: function (monto) {
+      this.saldo = this.saldo + monto;
+    },
+
+    retirar: function (monto) {
+      this.saldo = this.saldo - monto;
+    },
+
+    verSaldo: function () {
+      console.log(`El saldo actual de la cuenta es: $${this.saldo}`);
+    }
+
+  }
+
+  return cuentaBancaria;
 }
 
 
-console.log(eliminarEstudiante(arrayEstudiantes,'santiago'));
+var cuentaBancaria = crearCuentaBancaria();
+cuentaBancaria.depositar(10000);
+cuentaBancaria.retirar(3000);
+
+console.log('28) Primero se depositaron $10000 y luego se retiraron $3000');
+
+cuentaBancaria.verSaldo();
+
+//punto 29
+
+function Libro(titulo, autor, paginas) {
+
+
+  this.titulo = titulo;
+  this.autor = autor;
+  this.paginas = paginas;
+
+  this.verInfo = function () {
+    console.log(`Titulo: ${this.titulo} Autor: ${this.autor} Paginas: ${this.paginas}`);
+  }
+
+}
+
+const libro = new Libro('Harry Potter', 'Santiago Ude', 150);
+libro.verInfo();
+
+
+//punto 30
 
 
 
+function Tarea(tituloTarea) {
 
+  this.tituloTarea = tituloTarea;
+  this.completada = false;
+  this.marcarCompletada = function () {
+    this.completada = true;
+  }
+
+}
+
+var arrayTareas = [];
+crearTarea('Repasar para el parcial');
+crearTarea('Hacer el tp 1');
+crearTarea('Cursar Legislacion');
+crearTarea('Desayunar bien');
+crearTarea('organizar el notion');
+
+
+function listarTareas(arrayTareas) {
+
+  arrayTareas.forEach(element => {
+
+    console.log(element);
+
+  });
+
+}
+
+function crearTarea(titulo) {
+
+  let tarea = new Tarea(titulo);
+  arrayTareas.push(tarea);
+}
+
+function marcarTarea(titulo) {
+
+  arrayTareas.forEach(element => {
+
+    if(element.tituloTarea == titulo){
+
+      element.marcarCompletada();
+    }
+  });
+
+}
+
+marcarTarea('Hacer el tp 1');
+marcarTarea('Desayunar bien');
+
+crearTarea('Paja pre parcial')
+marcarTarea('Paja pre parcial')
+listarTareas(arrayTareas);
 
