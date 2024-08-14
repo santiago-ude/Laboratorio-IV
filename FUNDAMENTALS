@@ -218,20 +218,57 @@ function Persona(nombre,apellido,edad,altura,peso){
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
+        
+|||-------|||-------|||-------|||-------|||-------ARRAYS-------|||-------|||-------|||-------|||-------|||-------|||
 
 
+Metodos:
 
 
+Array.length : devuelve la cantidad de elementos del array (longitud)
+
+-AGREGAR
+Array.push(element) : agrega un elemento al final del array.
+array[index] = num : agrega un elemento num en la posicion index.
+array.unshift(element): agrega un elemento al principio del array. 
+
+-ELIMINAR
+array.shift(): elimina el primer elemento del arreglo.
+array.splice(2,1): elimina de la posicion 2, 1 elemento en adelante.
+array.splice(2) : elimina desde la posicion 2 hasta el final del array.
+
+-RECORRER/FILTRAR
+array.forEach(num =>{funcionamientos...}) : recorre el array por completo
+array.filter(numero => numero > 2) : devuelve un array con los elementos mayores a 2.
+array.map(numero => numero > 2) : devuelve con array con la cantidad de booleanos, que tenga de elementos el array usado. (true los mayores a 2, false los menores o iguales)
 
 
+-------------------------------------------------------------------------------------------------------------------------------------------
 
 
+|||-------|||-------|||-------|||-------|||-------MATH-------|||-------|||-------|||-------|||-------|||-------|||
 
 
+-Redondeo y Truncamiento:
+Math.round(valor): Redondea al entero mas cercano. (puede usar un argumento para especificar la cantida de decimales a redondear)
+Math.floor(valor): Truncar para abajo.
+Math.ceil(valor): Truncar para arriba.
 
+-Valor Absoluto
+Math.abs(valor): devuelve el valor absoluto de un numero (distancia hasta el 0).
 
+-Potencia y Raiz
+Math.pow(base, exponente) : potencias base a la exponente
+Math.sqrt(num): raiz cuadrada del numero pasado por parametro
 
+-Aleatoriedad
+Math.random(): genera un numero aleatorio entre 0 y 1.
+Math.random() * (max - min) + min : devuelve un numero entre min (incluido) y max
 
+-Maximo y Minimo
+Math.max(num1, num2, num3): encontrar el valor maximo de un conjunto de numeros. (Math.max(...Array))
+Math.min(num1, num2, num3): encontrar el valor minimo de un conjunto de numeros.Math.min(...Array)
 
-
+-PI
+Math.PI(): Devuelve el numero PI completo
 
