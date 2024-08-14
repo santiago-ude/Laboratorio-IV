@@ -271,4 +271,3 @@ Math.min(num1, num2, num3): encontrar el valor minimo de un conjunto de numeros.
 
 -PI
 Math.PI(): Devuelve el numero PI completo
-
