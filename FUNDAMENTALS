@@ -271,3 +271,34 @@ Math.min(num1, num2, num3): encontrar el valor minimo de un conjunto de numeros.
 
 -PI
 Math.PI(): Devuelve el numero PI completo
+
+
+|||-------|||-------|||-------|||-------|||-------FUNCTION-------|||-------|||-------|||-------|||-------|||-------|||
+
+DECLARACION DE FUNCION: function nombreFuncion(parametro1,parametro2){
+    ..
+    ..              (TIENE HOISTING)
+    ..  
+    codigo...
+    ..
+    ..
+} 
+
+EXPRESION FUNCION: const sumar2 = function(parametro1,parametro2){
+    ..
+    ..              (NO TIENE HOISTING, SE DECLARA ANTES DE USARLA)
+    ..
+    codigo...      
+    ..
+    ..
+} 
+
+
+TEORIA:
+
+metodo != funcion
+
+metodo esta relacionado al objeto, en la POO
+funcion es un bloque de codigo que puede o no retornar y recibir parametros
+
+
