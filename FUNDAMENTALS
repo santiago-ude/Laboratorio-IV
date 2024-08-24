@@ -1,6 +1,6 @@
 
 
-    |||-------|||-------|||-------|||-------|||-------VARIABLES-------|||-------|||-------|||-------|||-------|||-------|||
+|||-------|||-------|||-------|||-------|||-------|||-------VARIABLES-------|||-------|||-------|||-------|||-------|||-------|||
 
     -LET: alcance de un ambito en particular
     -CONST: una vez inicializada y asignado un valor, no se puede cambiar. 
@@ -10,7 +10,7 @@
 
 
 
-            |||-------|||-------|||-------|||-------|||-------STRING-------|||-------|||-------|||-------|||-------|||-------|||
+|||-------|||-------|||-------|||-------|||-------|||-------STRING-------|||-------|||-------|||-------|||-------|||-------|||
 
     cadena de caracteres, secuencia de caracteres, 3 formas de inicializar.
 
@@ -43,7 +43,7 @@
 -------------------------------------------------------------------------------------------------------------------------------------------
 
 
-|||-------|||-------|||-------|||-------|||-------OPERADORES-------|||-------|||-------|||-------|||-------|||-------|||
+|||-------|||-------|||-------|||-------|||-------OPERADORES-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------
 Prioridades de orden de operadores...
 
 -1 parentesis
@@ -57,8 +57,9 @@ Prioridades de orden de operadores...
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
- |||-------|||-------|||-------|||-------|||-------OBJETOS LITERALES-------|||-------|||-------|||-------|||-------|||-------|||
+ |||-------|||-------|||-------|||-------|||-------OBJETOS LITERALES-------|||-------|||-------|||-------|||-------|||-------|||-------
     Se declaran con {} y son pares "clave-valor" separadas por coma , ...
+
 
 
 
@@ -149,7 +150,7 @@ var objetoPrueba = {
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-|||-------|||-------|||-------|||-------|||-------"use strict"-------|||-------|||-------|||-------|||-------|||-------|||
+|||-------|||-------|||-------|||-------|||-------"use strict"-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------
 
 es un llamado para que, el bloque de codigo seguido o archivo de codigo, cuente con ciertas restricciones 
 para un codigo mas seguro y robusto.
@@ -173,9 +174,11 @@ Por ejemplo --no permite las declaraciones implicitas(no permite declaraciones s
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-|||-------|||-------|||-------|||-------|||-------OBJETO CONSTRUCTOR-------|||-------|||-------|||-------|||-------|||-------|||
+|||-------|||-------|||-------|||-------|||-------OBJETO CONSTRUCTOR-------|||-------|||-------|||-------|||-------|||-------|||-------
 Funcion para crear/construir nuevos objetos...
 new + nombre CONSTRUCTOR
+
+~~ Si agregas un atributo sin el this permite crear una especie de privacidad o encapsulamiento que no se consigue de manera nativa en JS~~
 
 
 EJEMPLO:
@@ -204,7 +207,7 @@ function Persona(nombre,apellido,edad,altura,peso){
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-|||-------|||-------|||-------|||-------|||-------TIPOS DATOS COMPUESTOS-------|||-------|||-------|||-------|||-------|||-------|||
+|||-------|||-------|||-------|||-------|||-------TIPOS DATOS COMPUESTOS-------|||-------|||-------|||-------|||-------|||-------|||-------
 
 1 OBJECT: Coleccion de pares {clave : valor}.
 2 ARRAY: Lista ordenada de elementos de cualquier tipo, indexada con indices desde 0
@@ -219,7 +222,7 @@ function Persona(nombre,apellido,edad,altura,peso){
 -------------------------------------------------------------------------------------------------------------------------------------------
 
         
-|||-------|||-------|||-------|||-------|||-------ARRAYS-------|||-------|||-------|||-------|||-------|||-------|||
+|||-------|||-------|||-------|||-------|||-------ARRAYS-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------
 
 
 Metodos:
@@ -242,11 +245,12 @@ array.forEach(num =>{funcionamientos...}) : recorre el array por completo
 array.filter(numero => numero > 2) : devuelve un array con los elementos mayores a 2.
 array.map(numero => numero > 2) : devuelve con array con la cantidad de booleanos, que tenga de elementos el array usado. (true los mayores a 2, false los menores o iguales)
 
+array.concat(otroarray) : une los arrays
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
 
-|||-------|||-------|||-------|||-------|||-------MATH-------|||-------|||-------|||-------|||-------|||-------|||
+|||-------|||-------|||-------|||-------|||-------MATH-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------
 
 
 -Redondeo y Truncamiento:
@@ -272,8 +276,7 @@ Math.min(num1, num2, num3): encontrar el valor minimo de un conjunto de numeros.
 -PI
 Math.PI(): Devuelve el numero PI completo
 
-
-|||-------|||-------|||-------|||-------|||-------FUNCTION-------|||-------|||-------|||-------|||-------|||-------|||
+|||-------|||-------|||-------|||-------|||-------FUNCTION-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------
 
 DECLARACION DE FUNCION: function nombreFuncion(parametro1,parametro2){
     ..
@@ -300,5 +303,104 @@ metodo != funcion
 
 metodo esta relacionado al objeto, en la POO
 funcion es un bloque de codigo que puede o no retornar y recibir parametros
+
+
+|||-------|||-------|||-------|||-------|||-------PROTOTYPE-------|||-------|||-------|||-------|||-------|||-------|||
+
+~Mecanismo que permite a los objetos heredar propiedades y metodos de otros objetos~
+~Cada objeto tiene un prototype que es otro objeto del cual hereda metodos y propiedades~
+
+1° : cuando se crea un constructor de Persona por ejemplo.
+2° : se le puede agregar un metodo o atributo al prototype del constructor
+3° : Persona.prototype.saludar = function(){ console.log(`Hola, mi nombre es ${this.nombre} como estas?`) }
+
+
+~~ Es mas eficiente usar un prototype para la funcion constructora de un objeto, en vez de declarar la funcion dentro del objeto.
+   Es mas eficiente en terminos de memoria~~
+
+
+
+|||-------|||-------|||-------|||-------|||-------CLASES-------|||-------|||-------|||-------|||-------|||-------|||
+
+
+~ Se introdujeron en JS en 2015 para una sintaxis mas similar a los desarrolladores que venian de otro lenguaje de POO~
+
+
+~~1° Definicion~~: class NombreClase {
+
+(palabra reservada "constructor")
+constructor(param1,param2){
+
+    this.param1 = param1;
+    this.param2 = param2;
+}
+
+mostrar() {
+
+    clg(....);
+}
+
+}
+
+~~2° Privacidad-encapsulamiento~~:
+
+usar # antes del nombre del atributo.
+
+class NombreClase {
+
+#param1;
+
+(palabra reservada "constructor")
+constructor(param1,param2){
+
+    this.#param1 = param1;
+    this.param2 = param2;
+}
+
+mostrar() {
+
+    clg(....);
+}
+
+}
+
+
+3° Metodos get() y set():
+
+~ Acceder a los atributos private~
+~No es necesario con los atributos que no son private (basta con poner objet.nombreAtributo)~
+
+[Si, por ejemplo, edad fuera private...]
+
+----------------------------------------------
+getEdad(){
+return this.#edad;
+}
+----------------------------------------------
+
+----------------------------------------------
+setEdad(nuevaEdad){
+
+if(nuevaEdad != null & nuevaEdad >= 0){
+    this.#edad = nuevaEdad;
+}
+else{
+    console.log(`No se puede cargar una edad vacia o menor a 0`)
+}
+}
+----------------------------------------------
+
+[  VENTAJAS:
+~~Encapsulamiento y seguridad
+
+~~Control de las propiedades: permite validar y controlar los accesos o cambios en los atributos
+
+~~Facilidad de uso
+]
+
+
+
+
+
 
 
