@@ -1,5 +1,6 @@
 
 
+
 |||-------|||-------|||-------|||-------|||-------|||-------VARIABLES-------|||-------|||-------|||-------|||-------|||-------|||
 
     -LET: alcance de un ambito en particular
@@ -297,6 +298,16 @@ EXPRESION FUNCION: const sumar2 = function(parametro1,parametro2){
 } 
 
 
+ARROW FUNCTION(expresion):
+
+
+const saludar = (parametros) =>{
+ 
+ funcionamiento
+
+}
+
+
 TEORIA:
 
 metodo != funcion
@@ -399,8 +410,49 @@ else{
 ]
 
 
+|||-------|||-------|||-------|||-------|||-------CALLBACKS-------|||-------|||-------|||-------|||-------|||-------|||
 
 
+Son funciones que se pasan como argumentos a otras funciones y se ejecutan cuando se completa una tarea o evento en particular.
 
+
+//CON FUNCION FLECHA:
+
+function modify(array, callback) {
+
+    array.push('negro'); // el evento
+
+    callback(); //se ejecuta la funcion cuando se hace el evento
+}
+
+
+const names = ['santiago', 'gianella', 'facundo'];
+
+//SE LE PASA UNA FUNCION FLECHA CREADA EN EL MOMENTO
+modify(names, callback = () => {
+
+    console.log('El array fue modificado');
+
+})//se le pasa el callback como funcion flecha, o se puede pasar una funcion ya declarada/expresada
+
+
+//CON FUNCION EXPRESADA/DEFINIDA:
+
+
+function modify(array, callback) {
+
+    array.push('negro'); // el evento
+
+    callback(); //se ejecuta la funcion cuando se hace el evento
+}
+
+
+function callback(){
+
+console.log('El array fue modificado');
+
+}
+
+modify(names,callback);
 
 
