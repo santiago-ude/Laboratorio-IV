@@ -252,6 +252,8 @@ array.concat(otroarray) : une los arrays
 |||-------|||-------|||-------|||-------|||-------SET-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------
 
 const set1 = new Set();
+//elimina automaticamente los duplicados
+//busquedas rapidas
 
 Metodos:
 
@@ -259,11 +261,31 @@ Metodos:
 .delete(): para eliminar un elemento
 for of: para recorrer y cortar con un return
 forEach(): para recorrer por completo
+.has(): devuelve true si contiene lo que le pasamos por parametro o false de lo contrario.
+
+[...estudiantes].some((estudiante) => estudiante.legajo === legajoBuscado); //devuelve true si existe (legajoBuscado se declara antes).
+
+[...estudiante].find((estudiante) => estudiante.legajo === legajoBuscado); //devuelve el estudiante con ese legajo
+
 
 
 |||-------|||-------|||-------|||-------|||-------MAP-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------
 
+//coleccion de pares clave-valor
+//claves de cualquier tipo
+//objetos: claves solo tipo String...
+//mantiene el orden de insercion
+//tiene metodos reservados solamente para map
 
+Metodos:
+
+.set(key,value): se agrega la key y el valor
+.get(key) : devuelve el valor de la key pasada.
+.get(key).nombre = 'santiago': actualizamos el campo nombre del objeto guardado en la key pasada.
+.delete(key) = eliminar la par clave-valor con la key pasada.
+.forEach((e) => console.log(e));: mostraro todos los pares del Map
+
+[...estudiantesMap.values()].find( (e) => e.legajo === 3);: busca dentro de los values el objeto que tenga como legajo el 3 y lo retorna
 
 
 
