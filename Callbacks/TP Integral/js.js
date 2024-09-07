@@ -1,5 +1,4 @@
 
-
 //?------------------------------------------------------------------
 //? PUNTO 1
 
@@ -372,24 +371,7 @@ console.log(`Los numeros filtrados sumados dan: ${arrayNumeritosFiltradosSumados
 
 
 //?-----------------EJERCICIOS AVANZADOS-------------------------------------------------
-//? PUNTO 1
-
-const arrayObjetos = [
-{nombre : "juan", edad : 20},
-{nombre : "maria", edad : 25},
-{nombre : "pedro", edad : 30},
-]
-
-
-function toArrayNombres(arrayObjetos){
-
-
-    let arrayNombres = [];
-
-
-return arrayNombres;
-}
-
+//?...
 
 
 
