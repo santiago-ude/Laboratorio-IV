@@ -248,8 +248,28 @@ array.map(numero => numero > 2) : devuelve con array con la cantidad de booleano
 
 array.concat(otroarray) : une los arrays
 
--------------------------------------------------------------------------------------------------------------------------------------------
 
+|||-------|||-------|||-------|||-------|||-------SET-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------
+
+const set1 = new Set();
+
+Metodos:
+
+.add(): agregar un elemento
+.delete(): para eliminar un elemento
+for of: para recorrer y cortar con un return
+forEach(): para recorrer por completo
+
+
+|||-------|||-------|||-------|||-------|||-------MAP-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
 
 |||-------|||-------|||-------|||-------|||-------MATH-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------|||-------
 
@@ -434,6 +454,8 @@ modify(names, callback = () => {
     console.log('El array fue modificado');
 
 })//se le pasa el callback como funcion flecha, o se puede pasar una funcion ya declarada/expresada
+
+
 
 
 //CON FUNCION EXPRESADA/DEFINIDA:
