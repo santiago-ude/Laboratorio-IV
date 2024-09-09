@@ -1,0 +1,30 @@
+#tarea{
+
+    width: 200px;
+    height: 50px;
+    border: 3px solid black;
+}
+
+#tarea:hover{
+border-radius: 10px;
+}
+
+
+#error{
+    color: red;
+    margin: 10px;
+   
+}
+
+#btnAdd{
+
+width: 50px;
+height: 30px;
+margin: 10px;
+}
+
+#lTarea{
+
+color: blue;
+
+}
