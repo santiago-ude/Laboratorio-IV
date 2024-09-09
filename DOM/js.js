@@ -23,7 +23,7 @@ inputTarea.addEventListener("keydown", () => {
 
     if (event.key === "Enter") {
 
-        if (inputTarea.value === '') {
+        if (inputTarea.value.trim() === '') {
 
             divError.innerText = 'Error de cargado, no se puede insertar una tarea vacia';
 
@@ -44,7 +44,7 @@ inputTarea.addEventListener("keydown", () => {
 
 btnAdd.addEventListener("click", () => {
 
-    if (inputTarea.value === '') {
+    if (inputTarea.value.trim() === '') {
 
         divError.innerText = 'Error de cargado, no se puede insertar una tarea vacia';
 
