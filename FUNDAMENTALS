@@ -1,17 +1,17 @@
 
 
 
-|||-------|||-------|||-------|||-------|||-------|||-------VARIABLES-------|||-------|||-------|||-------|||-------|||-------|||
+//*|||-------|||-------|||-------|||-------|||-------|||-------VARIABLES-------|||-------|||-------|||-------|||-------|||-------|||
 
     -LET: alcance de un ambito en particular
     -CONST: una vez inicializada y asignado un valor, no se puede cambiar. 
     -VAR: alcance Global y de Funcion
 
--------------------------------------------------------------------------------------------------------------------------------------------
+//*-------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
-|||-------|||-------|||-------|||-------|||-------|||-------STRING-------|||-------|||-------|||-------|||-------|||-------|||
+//*|||-------|||-------|||-------|||-------|||-------|||-------STRING-------|||-------|||-------|||-------|||-------|||-------|||
 
     cadena de caracteres, secuencia de caracteres, 3 formas de inicializar.
 
@@ -498,5 +498,433 @@ console.log('El array fue modificado');
 }
 
 modify(names,callback);
+
+
+
+|||-------|||-------|||-------|||-------|||-------MODULARIZAR-------|||-------|||-------|||-------|||-------|||-------|||
+
+-----------------METODO 1-------------------------------------------------------------------------
+
+1° PASO: El script debe tener type = "module"
+
+2°: En el .js que contenga funciones de otros .js se usa el import
+import {} from "path";
+
+3°: En las funciones, clases de otros .js se usa el export antes de la declaracion
+
+---------------METODO 2---------------------------------------------------------------------------------------
+
+2°: hacer las funciones en el js que va a exportarlas. YU en vez de poner export function...
+
+3° usar "export default nombreFuncion;"
+
+---------------METODO 3---------------------------------------------------------------------------------------
+
+2°: ponerle export a las funciones que se quieran exportar
+
+3°: a la hora de importar la sintaxis va a ser asi "import * as calculadora from "./producto/producto.js""
+
+Y el nombre despues del as es como el nombre de una clase, cuando quieras usar las funciones hay que usar "calculadora.nombreFuncion"
+
+
+
+|||-------|||-------|||-------|||-------|||-------DOM-------|||-------|||-------|||-------|||-------|||-------|||
+
+"Document Object Model" (modelo de objetos del documento):
+
+-Represent la estructura del documento HTML que permite manipular los elementos de la pagina web.
+-Se crea automaticamente cuando se crea la pagina en el navegador
+-Organiza los elementos en una estructura de arbol, cada elemento HTML es un nodo
+
+----------------------------------------------------------------DOCUMENT-------------------------------------------------------------------------------------
+    Representa el objeto central, todo el documento HTML.
+
+METODOS DE DOCUMENT:
+
+-getElementById(id): Accede a un elemento HTML por su id, retorna null si no lo encuentra
+-getElementByClassName(classname):devuelve una lista de elementos que correspondan a la clase especifica, se accede por indice a cada elemento
+-getElementByTagName(tagName): devuelve una lista de elementos con un nombre de etiqueta especifico
+-querySelector(selector): devuelve el primer elemento que coincida con el selector (.nombreClase),(#id);
+-querySelectorAll(selector):devuelve una lista de todos los elementos que correspondan a ese selector.
+
+ATRIBUTOS MAS UTILIZADOS:
+
+-document.title: permite acceder al titulo de la pagina y modificarlo
+-document.body: accede al elemento <body> 
+-document.cookie: permite leer y escribir cookies del navegador
+-document.documentElement: representa el elemento raiz del documento, <html>
+-document.head: accede al elemento <head>, donde se incluyen los metadatos y links a scripts o hojas de estilo.
+
+
+DOCUMENTS.FORMS
+
+Devuelve una collection (array) con las referencias a los formularios en orden de aparicion del documento HTML
+
+ACCESO:
+
+    Al formulario:
+        -por indice numerico: | var formulario = document.forms[0];
+        -por nombre: | var formulario = document.forms["miFormulario"];
+
+    A elementos del forumario:
+        -aceder al campo de texto: var campoTexto = formulario.elements["miCampoTexto"];
+        -acceder al boton de enviar: var btnEnviar = fromulario.elements["botonEnviar"]
+        
+ITERAR FORMULARIOS:
+
+    -Se puede iterar los formularios con un for:
+
+        for(let i = 0; i < formularios.lenght;i++){
+
+            console.log(formularios[i].name);
+
+        }
+
+
+VALIDAR FORMULARIO:
+
+    -var campoNombre = formularios.elements["nombre"]
+
+    if(campoNombre = ""){
+
+        alert("Ingrese un nombre, nombre vacio invalido");
+        return false; //no se envia el form, si el campo esta vacio
+    }
+
+----------------------------------------------------------------MODIFICAR ELEMENTOS HTML----------------------------------------------------------------------------
+
+-Un parrafo:
+            var parrafo = document.getElementById('miParrafo');
+            parrafo.textContent = 'djfkasdjfkdlsjafkajdsfkajsdkfjdasfkjdaskfajsdf'
+
+-SRC de una imagen:
+            var imagen = document.getElementById('miImagen');
+            imagen.src = 'imagen2.jpg';
+
+-HREF de un link:
+            var link = document.getElemenById('miLink');
+            link.href = 'https//www.nuevoVinculo.com';
+
+-class de un elemento:
+            var element = document.getElementById('elemento');
+            element.classname = 'container1';
+
+----------------------------------------------------------------TRAVERSING-------------------------------------------------------------------------------------------
+
+Se refiere a la accion de recorrer y navegar por la estructura jerarquica de un documento HTML utilizando JS.
+
+ACCESO:
+
+    A elementos hijos: Se usan propiedades como 'childNodes', 'firstChild', 'lastChild' o metodos como querySelector, querySelectorAll...
+        
+        -   var element = document.getElementById['miElemento']
+            var primerHijo = element.firstChild;
+
+
+    A elementos hermanos: propiedades como 'nextSibling' y 'previousSibling', elementos que comparten el mismo padre.
+        
+        -   var element = document.getElementById('miElement');
+            var hermanoSig = document.nextSibling;
+            var hermanoAnt = document.previousSibling;
+
+    Al padre de un elemento: propiedad 'parentNode'
+
+        -   var element = document.getElementById('miElement');
+            var padreElement = element.parentNode;
+
+
+RECORRER ELEMENTOS:
+
+    Recorrer Lista:
+
+        -   var lista = document.getElementByTagName('li');
+            for(let i = 0; i < lista.lenght;i++){
+
+                console.log(lista[i].textContent);
+
+            }
+
+
+----------------------------------------------------------------appendChild y removeChild-------------------------------------------------------------------------------------------
+
+-Son metodos utilizados para agregar o eliminar elementos HTML en el arbol del documento.
+-Utiles para la manipulacion dinamica de elementos de una pagina web
+
+
+    -'appendChild':
+        -Agrega un nodo como hijo de otro nodo, un parrafo a un div, un li a un ul...
+            
+            var nuevoParrafo = document.createElement('p');
+            nuevoParrafo.textContent = "Este es un nuevo parrafo..safdsafasdf"
+
+            var contenedor = document.getElementById('container1'); //selecciona el elemento que va a ser padre del nuevo nodo
+            contenedor.appendChild(nuevoParrafo); //inserta el nuevo nodo
+
+
+
+    -'removeChild':
+        -Elimina un nodo hijo, lo desenlaza del nodo padre
+
+            var elementoEliminar = document.getElementById('aEliminar'); //elemento que quiere eliminar
+            var elementoPadre = elementoEliminar.parentNode; //busca al padre del elemento a eliminar
+
+            elementoPadre.removeChild(elementoEliminar); //llama al padre y elimina al hijo que habiamos seleccionado en la primer linea
+
+
+
+----------------------------------------------------------------onClick-------------------------------------------------------------------------------------------
+
+-Es un evento de JS que se dispara cuando se hace click en un elemento HTML.
+
+
+1~ En el doc HTML crea el button: <button id = "miBoton">Haz click en mi</button>
+
+2~ var boton = document.getElementById('miBoton');
+
+3~ 
+/1/
+boton.onClick = () =>{
+    alert('hiciste click en el botoon')
+}
+
+/2/
+boton.onClick = function(){
+
+alert('hiciste click en el botoon')
+}
+
+
+----------------------------------------------------------------'addEventListener'-------------------------------------------------------------------------------------------
+
+-Se le pasa por parametro el evento y la funcion que uno quiere que realice cuando se cumpla el evento, es mas versatil que el onClick
+
+1~ var boton = document.getElementById('miBoton');
+
+2~ .addEventListener(evento, function);
+
+    .addEventListener('click', () =>{
+
+        alert('tocaste mi boton, muchas gracias')
+
+    })
+
+
+
+----------------------------------------------------------------EVENTO-------------------------------------------------------------------------------------------
+
+-Accion que sucede en el navegador web y que puede ser detectada y manejada por el codigo de JS.
+-Estas acciones las puede realizar tanto el usuario como hacer click en el boton, como el navegador al cargar una pagina por ejemplo
+
+-Se puede usar .addEventListener(event, function);
+
+
+------------------------DOMContentLoaded------------------------
+
+Es un evento en JS que se dispara cuando el HTML ha sido completamente cargado y parseado, es decir que toda la estuctura HTML esta disponible para ser manipulada por JS.
+
+Es util para manipular eventos que puedan pasar antes que se carguen todos los elementos multimedia, enlaces,etc.
+
+-Utilizacion
+
+document.addEventListener('DOMContentLoaded', () =>{
+//se ejecutara este codigo cuando el documento este totalmente cargado
+
+//se puede ingresar a elementos del HTML
+
+const miBoton = document.getElementById('myButton');
+miBoton.addEventListener('click', () =>{
+
+    alert('gracias por hacer click en el boton');
+
+})
+})
+
+
+LISTA DE EVENTOS:
+
+    Mouse:
+        -'click': cuando se hace click en el elemento
+        -'mouseover','mouseout': cuando el cursos entra y sale de un elemento
+        -'mousedown', 'mouseup': cuando se presiona y se libera un boton del raton mientras esta sobre un elemento.
+
+    Teclado:
+        -'keydown', 'keyup': cuando se presiona y se suelta una tecla del teclado mientras un elemento tiene el foco, como un campo de entrada de texto
+        
+    Formulario:
+        -'submit': se dispara cuando se envia un formulario
+        -'input', 'change': se dispara cuando se cambia el valor de un campo de entrada de texto u otro elemento de formulario
+        
+    Windows:
+        -'load': cuando se ha cargado completamente la pagina web
+        -'resize': cuando se cambia el tamanio de la ventana del navegador
+        -'scroll': cuando se desplaza la pagina
+
+    Tiempo:
+        -'setTimeOut', 'setInterval': no son eventos en si, pero se utilizan para ejecutar un codigo con retrado o intervalos regulares
+    
+    Arrastrar y Soltar:
+        -'dragstart', 'dragover', 'dragenter', 'dragleave', 'dragend', 'drop': Se utilizan en elementos que pueden arrastrarse y soltarse, como imagenes o elementos de lista
+
+    Medios:
+        -'play', 'pause' y 'ended': se utilizan en elementos de medios, como elementos de audio y video, para controlar la reproduccion.
+
+    Enfoque:
+        -'focus', 'blur': cuando un elemento obtiene o pierde el foco, como un campo de entrada de texto
+    
+    Errores:
+        -'error': cuando se produce un error al cargar un recurso, como una imagen o un script.
+
+    Historial:
+        -'popstate': cuando cambia el estado del historial del navegador
+
+        
+
+----------------------------------------------------------------OBJETO EVENT--------------------------------------------------------------------------------------------------------------------------
+
+-Representa un evento que ha ocurrido en la pagina web.
+-Contiene info detallada sobre el evento, tipo, el elemento del DOM que desencadeno el evento, coordenadas en la pantalla, teclas presionadas, etc.\
+-Se pasa como parametro a la funcion de manejo de eventos cuando se produce un evento.
+-Podes usar la info del evento para tomar decisiones o realizar acciones en respuesta al evento
+
+
+PROPIEDADES de 'event':
+    
+    -event.type: contiene el tipo de evento que ocurrio, 'click', 'input', 'keydown', etc.
+    -event.target: Se refiere al elemento del DOM que genero el evento.
+    -event.clientX y event.clientY: proporcionan las coordenadas X e Y del puntero del mouse en la pantalla cuando ocurrio el evento
+    -event.key: (en eventos de teclado) muestra que teclas se pulsaron.
+    -event.preventDefault(): Se utiliza para evitar el comportamiento predeterminado del evento. Por ejemplo se puede usar en el evento click en un enlace para que no cargue
+    -event.stopPropagation(): Sirve para detener la propagacion del evento a traves de la jerarquia de elementos del DOM.
+
+
+----------------------------------------------------------------EVENT BUBBLING--------------------------------------------------------------------------------------------------------------------------
+
+-Se refiere a la propagacion de eventos desde el elemento objetivo del evento hacia arriba a traves de jerarquia de elementos HTML
+-Para evitar el burbujeo de eventos, se puede utilizar el metodo 'event.stopPropagation()' en el manejador de eventos para detener la propagacion del evento en una fase especifica.
+
+En caso de que un boton este dentro de un div dentro de otro div y todos tienen un event 'click', en caso de clickear el boton, se ejecutan los 3 eventos de los elementos padre.
+
+Para detener esta propagacion se usa esto:
+
+boton.addEventListener('click', (event) =>{
+
+event.stopPropagation();
+alert('blablablablablabla');
+
+})
+
+----------------------------------------------------------------IIFE--------------------------------------------------------------------------------------------------------------------------
+Se conoce como una funcion autoejecutable o autoinvocada. Se utiliza para encapsular un fragmento de codigo dentro de una funcion anonima y ejecutarlo inmediatamente despues de la 
+definicion.
+-se necesita envolver la funcion entre parentesis y agregar () al final
+
+(function(){
+
+    let x = 10;
+    console.log(x); //solo se accede a x dentro de la IIFE
+
+})();
+
+-Con el let y const se soluciona el tema del encapsulamiento pero se sigue usando en situaciones especificas.
+
+
+----------------------------------------------------------------ASINCRONIA Y SINCRONIA-------------------------------------------------------------------------------------------------------------------------
+
+SINCRONIA:
+    -Las funciones se ejecutan una atras de otra, linea por linea
+    -Necesita que se ejecute y se termine de ejecutar la funcion anterior para empezar con la ejecucion de otra funcion
+       
+
+ASINCRONIA:
+que se realicen ejecuciones de funciones por mas que no se hayan terminado de ejecutar las anteriores
+----------------------------------------------------------------PROMESAS-------------------------------------------------------------------------------------------------------------------------
+
+-Son asincronicas, permiten que el codigo continue ejecutandose sin bloquearse mientras se espera que se resuelva una tarea asincrona.
+-No son bloqueantes, significa que el codigo no se detiene a esperar que se resuelva una promesa. Se ejecuta una funcion de retorno callback cuando la promesa se resuelve o se rechaza
+
+3 estados:
+    -Pending (pendiente): estado default, la promesa esta en curso y todavia ni ha terminado ni ha sido rechazada
+    -Fullfilled (resuelta): la operacion fue resuelta y completada con exito, tiene un resultado asociado.
+    -Reject (rechazada): la ejecucion fallo y la promise tiene el especifico error o fallo y tiene un motivo asociado.
+            
+    function obtenerDatos(){
+
+
+    EJEMPLO
+    const promise = new Promise((resolve, reject) =>{
+
+
+    setTimeout(() => {
+        
+        const exito = false;
+        if(exito){
+
+            const arreglo = [
+                {id:1, titulo: 'pelicula 1'},
+                {id:2, titulo: 'pelicula 2'},
+                {id:3, titulo: 'pelicula 3'}
+            ]
+
+            resolve(arreglo);
+        }
+        else{
+
+            reject('fallo por un motivo x');
+        }
+    }, 2000);
+})
+
+return promise;
+}
+
+
+obtenerDatos()
+.then(arreglo => {console.log('arreglo', arreglo);})
+.catch(error => { console.log('error al obtener el arreglo:', error);})
+
+
+
+
+ASYNC /AWAIT:
+    
+    async:
+        Se utiliza antes de la palabra reservada function y quiere decir que esa funcion va a ser asincrona
+
+    await:
+        Se utiliza dentro de una funcion async para esperar que una promesa se resuelva
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
