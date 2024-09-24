@@ -878,10 +878,20 @@ return promise;
 }
 
 
+-----1° FORMA-----
+
 obtenerDatos()
 .then(arreglo => {console.log('arreglo', arreglo);})
 .catch(error => { console.log('error al obtener el arreglo:', error);})
 
+-----2° FORMA-----
+
+
+async function getData mostrandoData(){
+
+    const datas = await getData();
+    console.log(datas);
+}
 
 
 
@@ -894,8 +904,10 @@ ASYNC /AWAIT:
         Se utiliza dentro de una funcion async para esperar que una promesa se resuelva
 
 
+----------------------------------------------------------------FETCH-------------------------------------------------------------------------------------------
 
-
+-devuelve una promise
+-tiene como parametro la url
 
 
 
