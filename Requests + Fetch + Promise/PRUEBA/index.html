@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module" src="js/main.js" ></script>
+
+   <main>
+    <h1>Gestion de tareas</h1>
+    <form id="formulario">
+        <fieldset>
+            <legend>
+                <label for="tarea">Tarea</label>
+                <input type="text" name="tarea" id="tarea" placeholder="Escribe una tarea" required>
+                <button type="submit">Agregar</button>
+            </legend>
+        </fieldset>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Id Tarea</th>
+                <th>Tarea</th>
+            </tr>
+        </thead>
+        <tbody id="listaTareas"></tbody>
+    </table>
+   </main>
+
+</body>
+</html>

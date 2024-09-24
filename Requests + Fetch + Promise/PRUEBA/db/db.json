@@ -1,0 +1,17 @@
+{
+  "tareas": [
+    {
+      "id": "1",
+      "nombre": "tarea 1: Estudiar para base de datos"
+    },
+    {
+      "id": "2",
+      "nombre": "Terminar con labo"
+    },
+    {
+      "id": "5e37",
+      "nombre": "agregar cliente"
+    }
+  ],
+  "clientes": []
+}
