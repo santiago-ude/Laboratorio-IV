@@ -1,70 +1,103 @@
-import { rejects } from "assert";
-import { type } from "os";
+    
 
-const urlBase = "http://localhost:3000/tareas"
+const url = "http://localhost:3000/tareas";
+
 
 //GET
 export async function GETtareas() {
 
     try {
 
-        const response = await fetch(urlBase); //devuelve una promise
+        const response = await fetch(url);
 
-        if (!response.ok) { //si no es valida tira una excepcion con el status de la respuesta
+        if (!response.ok) {
 
-            throw new Error('HTTP Request error ' + response.status);
+            throw new Error('HTTP Request Error' + response.status);
+
         }
 
-        return await response.json(); //si pasa la validacion retorna la respuesta en modo de json
+        return await response.json();
+
+    } catch (error) {
+
+        if (error instanceof TypeError) {
+
+            console.log('Error de red');
+
+        }
+        else {
+
+            console.log('Error al traer datos de las tareas');
+
+        }
+        throw error;
 
     }
-    catch (error) {
+}
 
-        if (error instanceof TypeError) { //verifica si es un error de red
+//GET por ID
+export async function GETporID(id) {
 
-            console.log('Error Red');
+    try {
 
-        } else {
+        const response = await fetch(`${url}/${id}`, {
 
-            console.error('Error al obtener los datos de las tareas');
+            method: "GET"
+        })
+
+        if (!response.ok) {
+
+            throw new Error('HTTP Request Error' + response.status);
+
+        }
+
+        return await response.json();
+
+
+    } catch (error) {
+
+        if (error instanceof TypeError) {
+
+            console.log('Error de red');
+
+        }
+        else {
+
+            console.log('Error al traer datos de las tareas');
 
         }
         throw error;
     }
 }
 
-
-//POST
+//POST 
 export async function POSTtareas(tarea) {
 
-
     try {
-        //en el post el fetch contiene 2 parametros
-        const response = await fetch(urlBase, {
 
-            method: 'POST', //especifica el metodo de la request
-            headers: { 'Content-Type': 'application/json' }, //pasa los headers TEXTUALES RESPETANDO MAYUS Y MINUS
-            body: JSON.stringify(tarea) // convirete o advierte que se va a pasar un objeto JSON.
+        const response = await fetch(url, {
+
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(tarea)
         });
 
         if (!response.ok) {
 
-            throw new Error('HTTP Request Error ' + response.status);
-
+            throw new Error('HTTP Request Error' + response.status);
         }
-
 
         return await response.json();
 
     } catch (error) {
 
-        if (error instanceof TypeError) { //verifica si es un error de red
+        if (error instanceof TypeError) {
 
-            console.log('Error Red');
+            console.log('Error de red');
+        }
+        else {
 
-        } else {
-
-            console.error('Error al cargar los datos de las tareas');
+            console.log('Error al cargar una tarea');
 
         }
         throw error;
@@ -77,13 +110,16 @@ export async function DELETEtarea(id) {
 
     try {
 
-        const response = await fetch('${urlBase}/${id}', {
+        const response = await fetch(`${url}/${id}`, {
 
             method: "DELETE"
-        })
+        });
 
-        if (!response.ok) { throw new Error('HTTP Request Error ' + response.status); }
+        if (!response.ok) {
 
+            console.log('HTTP Request Error' + response.status);
+
+        }
 
         return await response.json();
 
@@ -92,87 +128,53 @@ export async function DELETEtarea(id) {
         if (error instanceof TypeError) {
 
             console.log('Error de red');
-        }
-        else {
 
-            console.log('Error al eliminar una tarea');
+        } else {
+
+            console.log('Error al eliminar una tarea ');
 
         }
+
+        throw error;
     }
+
 }
 
 
-
-//GETbyID
-export async function GETbyIDtareas(id) {
-
+//PUT
+export async function PUTtarea(id, tarea) { 
 
     try {
 
-        const response = await fetch('${urlBase}/${id}', {
-            method: "GET"
-        });
+        const response = await fetch(`${url}/${id}`, {
 
-        if(!response.ok){
-            throw new Error('HTTP Request Error ' + response.status);
+            method: "PUT",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(tarea)
+        })
+
+        if (!response.ok) {
+
+            throw new Error('HTTP Request Error' + response.status);
+
         }
 
-        return await response.json(); 
-        
+        return await response.json();
+
     } catch (error) {
-        
 
-        if(error instanceof TypeError){
+        if (error instanceof TypeError) {
 
-            console.log('Error de red');
+            console.log('Error de Red');
+
+        } else {
+
+            console.log('Error al querer actualizar una tarea');
 
         }
-        else{
 
-            console.log('Error al querer mostrar los datos de una tarea');
-        }
+        throw error;
     }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
