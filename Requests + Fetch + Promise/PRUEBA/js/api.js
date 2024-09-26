@@ -170,7 +170,41 @@ export async function PUTtarea(id,tarea) {
 
 }
 
+//PATCH
+export async function PATCHtarea(id, tarea) {
 
+    try {
+
+        const response = await fetch(`${urlBase}/${id}`, {
+
+            method: "PATCH",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(tarea)
+        })
+
+        if (!response.ok) {
+            throw new Error('HTTP Request Error' + response.status);
+        }
+
+        return await response.json();
+
+    } catch (error) {
+
+
+        if (error instanceof TypeError) {
+
+            console.log('Error de red');
+
+        } else {
+
+            console.log('Error al querer actualizar alguno de los datos de una tarea');
+
+        }
+
+        throw error;
+
+    }
+}
 
 
 
