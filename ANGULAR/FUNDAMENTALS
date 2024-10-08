@@ -1,52 +1,179 @@
 
+//*-------------------------------------------------------------------------------------------------------------------------------------------------
 
-COMANDOS:
+//!COMANDOS:
 
--Instalar ANGULAR: npm install -g @angular/cli (en el windows powerShell)
--Nuevo Proyecto: ng new <nombre nuevo proyecto>  (en el CMD)
--Nuevo Componente: ng generate component <nombre componente>/ ng g c<nombre componente> 
--Nuevo Modulo: ng generate module <ruta/nombre>/ng g m <ruta/nombre>
--Nuevo Servicio: ng generate service <ruta/nombre>/ ng g s <ruta/nombre>
+//?-Instalar ANGULAR:
+//*       npm install -g @angular/cli (en el windows powerShell)
+
+//?-Nuevo Proyecto: 
+//*        ng new <nombre nuevo proyecto>  (en el CMD
+
+//?-Nuevo Componente: 
+//*    ng generate component <nombre componente>/ ng g c<nombre componente> 
+
+//?-Nuevo Modulo: 
+//*     ng generate module <ruta/nombre>/ng g m <ruta/nombre>
+
+//?-Nuevo Servicio: 
+//*     ng generate service <ruta/nombre>/ ng g s <ruta/nombre>
+
+//*-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//!PLUGINS
+
+//?-Angular Language service: 
+//*        https://marketplace.visualstudio.com/items?itemName=Angular.ng-template
+
+//?-Angular Snippet: 
+//*     https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2
+
+//?-Anular Schematics: 
+//*     https://marketplace.visualstudio.com/items?itemName=cyrilletuzi.angular-schematics
+
+//?-Auto close Tag: 
+//*     https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag
+
+//?-Auto import: 
+//*     https://marketplace.visualstudio.com/items?itemName=steoates.autoimport
+
+//?-Error lens: 
+//*     https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens
+
+//?-auto rename tag: 
+//*     https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag
 
 
+//*-------------------------------------------------------------------------------------------------------------------------------------------------
+//!ANGULAR
 
-                    ANGULAR
--Es un framework de desarrolo de aplicaciones web y moviles desarrollado y mantenido por google.
--Codigo abierto, utiliza TypeScript para construir aplicaciones del lado del cliente.
--Especialmente para crear aps web de una sola pagina (SPA)
+//?-Es un framework de desarrolo de aplicaciones web y moviles desarrollado y mantenido por google.
+//?-Codigo abierto, utiliza TypeScript para construir aplicaciones del lado del cliente.
+//?-Especialmente para crear aps web de una sola pagina (SPA)
 
--Componentes: 
-        -Las aplicaciones se dividen en componentes reutilizables.
-        -Representan partes de la interfaz de usuario y su funcionalidad.
+//*-Componentes: 
+//?        -Las aplicaciones se dividen en componentes reutilizables.
+//?        -Representan partes de la interfaz de usuario y su funcionalidad.
 
--Directivas:
-        -Son instrucciones en el marcado HTML
-        -Permite extender su funcionalidad
-        -Angular incluye directivas predefinidas como ngFor, ngif, ndModel.
-        -Permite crear directivas personalizadas
+//*-Directivas:
+//?        -Son instrucciones en el marcado HTML
+//?        -Permite extender su funcionalidad
+//?        -Angular incluye directivas predefinidas como ngFor, ngif, ndModel.
+//?        -Permite crear directivas personalizadas
 
--Enlace de datos bidireccional:
-        -Angular ofrece enlace de datos bidireccional
-        -El cambio de la interfaz de usuario impacta automaticamente en el modelo de datos y viceversa.
+//*-Enlace de datos bidireccional:
+//?        -Angular ofrece enlace de datos bidireccional
+//?        -El cambio de la interfaz de usuario impacta automaticamente en el modelo de datos y viceversa.
 
--Inyeccion de dependencias:
-        -Angular utiliza un sistema de inyeccion e dependencias de varias paginas y administrar la navegacion dentro de la aplicaciones
+//*-Inyeccion de dependencias:
+//?        -Angular utiliza un sistema de inyeccion e dependencias de varias paginas y administrar la navegacion dentro de la aplicaciones
 
--Enrutamiento:
-        -Angular proporciona un nrutador que mrmite crear aplicaciones de varias paginas y administrar la vegacion dentro de la aplicacion.
+//*-Enrutamiento:
+//?        -Angular proporciona un nrutador que mrmite crear aplicaciones de varias paginas y administrar la vegacion dentro de la aplicacion.
 
--Servicios
-        -Los servicios son claves que encapsulan la logica y funcionalidad compartida en toda la aplicacion
-        -De varias paginas y administrar dentro de la aplicacion
+//*-Servicios
+//?        -Los servicios son claves que encapsulan la logica y funcionalidad compartida en toda la aplicacion
+//?        -De varias paginas y administrar dentro de la aplicacion
 
--Modulos:
-        -Son contenedeores que agrupan componentes, directivas, servicios y otros elementos relacionados con unidad funcional.
-        -Organizan y modularizan el codigo de una aplicacion
+//*-Modulos:
+//?        -Son contenedeores que agrupan componentes, directivas, servicios y otros elementos relacionados con unidad funcional.
+//?        -Organizan y modularizan el codigo de una aplicacion
 
--TypeScript: 
-        -Angular se basa en TypeScript
-        -un superconjunto tipado de JS, que agrega caracteristicas orientadas y tipos de estaticos.
+//*-TypeScript: 
+//?        -Angular se basa en TypeScript
+//?        -un superconjunto tipado de JS, que agrega caracteristicas orientadas y tipos de estaticos.
         
+
+
+//*----------------------------------------(   SPA(Single Application Page)   )-------------------------------------------------------------------------------------------------------------- 
+
+ //*Aplicacion Web Tradicional:
+//?    -Logica y generacion de interfaz de usuario hecha en el servidor
+//?    -Un usuario realiza una solicitud, el servidor la procesa, accede a una BBD, genera una pag HTML y se la envia al navegador del usuario.
+//?    -El navegador actua como cliente y muestra la pagina hecha por el servidor
+
+ //*SPA:
+//?    -Gran parte de la logica de la aplicacion y la construccion de la interfaz se realiza en el navegador del usuario
+//?    -Utiliza JS, HTML y CSS
+//?    -La primera vez la ejecucion lanza una una pagina HTML con sus recursos de JS Y CSS
+//?    -Luego la App maneja la navegacion y la actualizacion sin necesidad de volver al servidor para cada accion.
+    
+
+//*Ventajas SPA:
+//?    -Experiencia de usuario mas fluida y rapida, porque no hace falta cargar una pagina entera cada vez que se realiza una accion
+//?    -Aplicaciones altamente iterativas
+//?    -El navegador del usuario descarga una gran cantidad de codigo inicialmente.
+
+
+//*-----------------------------------------------(  Data Binding  )--------------------------------------------------------------------------------------------------
+//?     Forma en que los datos se vinculan (bind) entre el componente y la vista. Hay varios tipos...
+
+//*Interpolacion
+//      ?Se usan doble llaves {{ }}', en las plantillas para mostrar valores de propiedades del componente dentro de la vista.
+//?     Por ejemplo '{{ nombre }}' mostraria el valor de la propiedad 'nombre'.
+
+//*Property Binding (binding de propiedad)
+//?     Establece el valor de una propiedad de un elemento HTML en una propiedad de un componente.
+//?     El src de una imagen (HTML) lo almacena en una propiedad del componente
+
+//*Event Binding (Binding de eventos)
+//?     Te permite escuchar eventos del DOM (clics, cambios, etc) y ejecutar respuesta a esos eventos en tu componente.
+
+//*Two-Way Data Binding (DataBinding de doble via)
+//?     Enlazar una propiedad tanto en la vista como en el componente, un cambio en cualquiera de los 2 se regleja en el otro automaticamente
+//?     Se logra usando '[(ngModel)]' en elementos del formulario por ejemplo
+
+//*Binding de Clase y Estilo
+//?     Podes enlazar dinamicamente las clases de CSS y los estilos en funcion de las propiedades del componente
+
+
+//*-----------------------------------------------(  Directivas  )--------------------------------------------------------------------------------------------------
+
+//?     En Angular las directivas son un componente clave que te permite extender el DOM y agregar funcionalidad adicional a los elementos HTML.
+//?     Son atributos que se le aplican a los elementos HTML y les da un comportamiento especifico
+//?     Hay 2 tipos de directivas en ANGULAR.
+
+//!    Directivas Estructurales:
+//?     Alteran la estructura DOM, agregando o eliminando elementos segun condiciones dadas. Las mas comunes son:
+//?             -'*nglf': Permite mostrar u ocultar elementos en funcion de una expresion booleana
+//?             -'*ngFor': Se utiliza para iterar sobre una coleccion de elementos y generar contenido dinamico
+//?             -'*ngSwitch': Permite realizar operaciones de conmutacion en funcion de valores
+
+
+//!    Directivas de Atributos:
+//?     Agregan comportamientos y manipulan atributos en elementos HTML existentes.
+//?             -'ngClass': permite agregar o quitar clases CSS dinamicamente a un elemento
+//?             -'ngStyle': Permite aplicar estios CSS dinamicamente a un elemento
+//?             -'ngModel': Se utiliza para la vinculacion bidireccional de datos en formularios
+
+//!Directivas Personalizadas:
+//?     Tambien se pueden crear tus propias directivas para encapsular logica y funcionalidades especificas que deseas reutilizar en tu aplicacion.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
