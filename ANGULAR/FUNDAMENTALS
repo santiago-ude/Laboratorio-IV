@@ -1,0 +1,53 @@
+
+
+COMANDOS:
+
+-Instalar ANGULAR: npm install -g @angular/cli (en el windows powerShell)
+-Nuevo Proyecto: ng new <nombre nuevo proyecto>  (en el CMD)
+-Nuevo Componente: ng generate component <nombre componente>/ ng g c<nombre componente> 
+-Nuevo Modulo: ng generate module <ruta/nombre>/ng g m <ruta/nombre>
+-Nuevo Servicio: ng generate service <ruta/nombre>/ ng g s <ruta/nombre>
+
+
+
+                    ANGULAR
+-Es un framework de desarrolo de aplicaciones web y moviles desarrollado y mantenido por google.
+-Codigo abierto, utiliza TypeScript para construir aplicaciones del lado del cliente.
+-Especialmente para crear aps web de una sola pagina (SPA)
+
+-Componentes: 
+        -Las aplicaciones se dividen en componentes reutilizables.
+        -Representan partes de la interfaz de usuario y su funcionalidad.
+
+-Directivas:
+        -Son instrucciones en el marcado HTML
+        -Permite extender su funcionalidad
+        -Angular incluye directivas predefinidas como ngFor, ngif, ndModel.
+        -Permite crear directivas personalizadas
+
+-Enlace de datos bidireccional:
+        -Angular ofrece enlace de datos bidireccional
+        -El cambio de la interfaz de usuario impacta automaticamente en el modelo de datos y viceversa.
+
+-Inyeccion de dependencias:
+        -Angular utiliza un sistema de inyeccion e dependencias de varias paginas y administrar la navegacion dentro de la aplicaciones
+
+-Enrutamiento:
+        -Angular proporciona un nrutador que mrmite crear aplicaciones de varias paginas y administrar la vegacion dentro de la aplicacion.
+
+-Servicios
+        -Los servicios son claves que encapsulan la logica y funcionalidad compartida en toda la aplicacion
+        -De varias paginas y administrar dentro de la aplicacion
+
+-Modulos:
+        -Son contenedeores que agrupan componentes, directivas, servicios y otros elementos relacionados con unidad funcional.
+        -Organizan y modularizan el codigo de una aplicacion
+
+-TypeScript: 
+        -Angular se basa en TypeScript
+        -un superconjunto tipado de JS, que agrega caracteristicas orientadas y tipos de estaticos.
+        
+
+
+
+
